@@ -6,11 +6,20 @@
     <title>日本の魅力を再発見</title>
     <link rel="stylesheet" href="static/css/style.css">
 </head>
-<body>
-    <header>
-        <nav>
+<body id="top">
+    <header class="site-header">
+        <nav class="nav">
             <div class="logo">旅のしおり</div>
-            <ul>
+
+            <!-- ▼ ハンバーガー（モバイルで表示） -->
+            <button class="hamburger" aria-label="メニュー" aria-controls="nav-links" aria-expanded="false">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"></path>
+                </svg>
+            </button>
+
+            <!-- ▼ 既存メニュー（IDを付与） -->
+            <ul id="nav-links" class="nav-links">
                 <li><a href="#">ログイン</a></li>
                 <li><a href="#" class="signup-button">新規登録</a></li>
             </ul>
@@ -18,17 +27,32 @@
     </header>
 
     <main>
+        <!-- ヒーロー -->
         <section class="hero">
             <div class="hero-text">
                 <h1>まだ見ぬ日本の魅力を探しに行こう</h1>
                 <p>このサイトは、日本各地の隠れた名所や定番の観光地を紹介し、あなたの旅をより豊かにするためのプラットフォームです。</p>
+                <a class="cta" href="#app-info">アプリの機能を見る</a>
             </div>
         </section>
 
-        <section class="features">
+        <!-- ▼ アプリ機能の説明（追加） -->
+        <section id="app-info" class="app-info" aria-labelledby="app-info-title">
+            <h2 id="app-info-title">アプリの主な機能</h2>
+            <ul class="feature-list">
+                <li><strong>地域別ガイド：</strong>都道府県やテーマで観光地を検索。</li>
+                <li><strong>お気に入り保存：</strong>気になるスポットをワンタップで保存。</li>
+                <li><strong>モデルコース：</strong>滞在時間・目的に合わせた旅程を自動提案。</li>
+                <li><strong>口コミ要約：</strong>SNSやレビューの要点をギュッと整理。</li>
+            </ul>
+        </section>
+
+        <!-- 注目の観光地（元の画像やテキストはそのまま） -->
+        <section class="features" id="features">
             <h2>注目の観光地</h2>
             <div class="card-container">
                 <div class="card">
+                    <!-- 【編集ポイント】画像差し替えは src のURLのみ変更でOK（今は元のまま） -->
                     <img src="https://via.placeholder.com/300x200?text=Toyama" alt="富山の風景">
                     <h3>富山</h3>
                     <p>壮大な立山連峰の自然に触れる旅。</p>
@@ -57,8 +81,76 @@
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer" aria-labelledby="footer-title">
+        <h2 class="sr-only" id="footer-title">フッター</h2>
         <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
+
+        <!-- ▼ 作成メンバー（4名分） -->
+        <section class="authors" aria-labelledby="authors-title">
+            <h3 id="authors-title">作成メンバー</h3>
+            <ul class="author-list">
+                <li class="author-item">
+                    <span class="author-name">大久保 文人</span> <!-- 【編集ポイント】名前 -->
+                    <a class="author-x" href="https://x.com/your_handle1" target="_blank" rel="noopener noreferrer">
+                        @your_handle1
+                    </a> <!-- 【編集ポイント】Xハンドル -->
+                    <span class="author-role">担当：UI/UX</span> <!-- 【編集ポイント】役割（任意） -->
+                </li>
+                <li class="author-item">
+                    <span class="author-name">山田 花子</span>
+                    <a class="author-x" href="https://x.com/your_handle2" target="_blank" rel="noopener noreferrer">
+                        @your_handle2
+                    </a>
+                    <span class="author-role">担当：フロント実装</span>
+                </li>
+                <li class="author-item">
+                    <span class="author-name">佐藤 太郎</span>
+                    <a class="author-x" href="https://x.com/your_handle3" target="_blank" rel="noopener noreferrer">
+                        @your_handle3
+                    </a>
+                    <span class="author-role">担当：バックエンド</span>
+                </li>
+                <li class="author-item">
+                    <span class="author-name">鈴木 美咲</span>
+                    <a class="author-x" href="https://x.com/your_handle4" target="_blank" rel="noopener noreferrer">
+                        @your_handle4
+                    </a>
+                    <span class="author-role">担当：デザイン/レビュー</span>
+                </li>
+            </ul>
+        </section>
     </footer>
+
+    <!-- ▼ トップへ戻るボタン -->
+    <a href="#top" class="back-to-top" aria-label="トップへ戻る">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 4l-8 8h6v8h4v-8h6z"></path>
+        </svg>
+    </a>
+
+    <!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
+    <script>
+      (function () {
+        const btn = document.querySelector('.hamburger');
+        const menu = document.getElementById('nav-links');
+
+        btn?.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          menu.classList.toggle('open');
+        });
+
+        const backToTop = document.querySelector('.back-to-top');
+        const onScroll = () => {
+          if (window.scrollY > 320) {
+            backToTop.classList.add('show');
+          } else {
+            backToTop.classList.remove('show');
+          }
+        };
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // 初期状態反映
+      })();
+    </script>
 </body>
 </html>

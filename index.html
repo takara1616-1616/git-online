@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本の魅力を再発見</title>
+    <title>Discover Japan ― 新しい旅の扉をひらく</title>
+
+<h1>Discover Japan ― 新しい旅の扉をひらく</h1>
+
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
@@ -33,6 +36,34 @@
             </div>
         </section>
 
+        <!-- ✅ ここから新規：アプリの主な機能 -->
+        <section class="app-features" id="app-features" aria-labelledby="app-features-title">
+            <h2 id="app-features-title">アプリの主な機能</h2>
+            <ul class="feature-list">
+                <li class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🗾</div>
+                    <h3>地域別ガイド</h3>
+                    <p>都道府県やテーマで観光地を検索。</p>
+                </li>
+                <li class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">⭐</div>
+                    <h3>お気に入り保存</h3>
+                    <p>気になるスポットをワンタップで保存。</p>
+                </li>
+                <li class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">🗺️</div>
+                    <h3>モデルコース</h3>
+                    <p>滞在時間・目的に合わせた旅程を自動提案。</p>
+                </li>
+                <li class="feature-card">
+                    <div class="feature-icon" aria-hidden="true">💬</div>
+                    <h3>口コミ要約</h3>
+                    <p>SNSやレビューの要点をギュッと整理。</p>
+                </li>
+            </ul>
+        </section>
+        <!-- ✅ ここまで新規 -->
+
         <section class="features">
             <h2>注目の観光地</h2>
             <div class="card-container">
@@ -59,7 +90,7 @@
                 <div class="card">
                     <img src="https://via.placeholder.com/300x200?text=Kumamoto" alt="熊本の風景">
                     <h3>熊本</h3>
-                    <p>あんたがたどこさ　ひごさ　肥後どこさ</p>
+                    <p>あんたがたどこさ　ひごさ　肥後どこさ　熊本さ</p>
                 </div>
             </div>
         </section>
@@ -80,14 +111,39 @@
         <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
     </footer>
 
-    <script>
-        // ハンバーガーメニューの開閉
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
+<!-- トップへ戻るボタン -->
+<a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-        });
-    </script>
+<!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
+<script>
+  // DOMが読まれてから安全に実行
+  document.addEventListener('DOMContentLoaded', () => {
+    // ハンバーガーメニューの開閉
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+    }
+
+    // トップへ戻るボタンの表示制御
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+      const onScroll = () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // 初期表示チェック
+      // ※テストで常に表示させたい場合は次行を有効化
+      // backToTop.classList.add('show');
+    }
+  });
+</script>
+
 </body>
 </html>

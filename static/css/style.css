@@ -206,6 +206,8 @@ nav { padding-right: 64px; }  /* 32px幅 + 余白 */
 @media (max-width: 768px){
   nav { padding-right: 0; }
 }
+
+/* Xリンクのスタイル（青 + アイコン横並び） */
 .member-name {
   font-weight: 700;
   color: #1da1f2;          /* Xブルー */
@@ -215,15 +217,12 @@ nav { padding-right: 64px; }  /* 32px幅 + 余白 */
   gap: 6px;
   transition: color .2s ease;
 }
-
 .member-name:hover {
   text-decoration: underline;
   color: #0d8ddb;          /* 濃い青に */
 }
-
 .x-icon {
   width: 16px;
   height: 16px;
   flex-shrink: 0;          /* 小さくならないように */
 }
-

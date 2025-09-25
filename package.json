@@ -1,0 +1,26 @@
+{
+  "name": "git-online",
+  "version": "1.0.0",
+  "description": "SUNABACO‗git-onlineのチーム用",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takara1616-1616/git-online.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/takara1616-1616/git-online/issues"
+  },
+  "homepage": "https://github.com/takara1616-1616/git-online#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}

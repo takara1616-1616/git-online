@@ -46,10 +46,31 @@ nav{
 /* 通常のナビ（PC幅では横並び、SP幅ではドロワー） */
 .nav-links{
   list-style:none; margin:0; padding:0;
-  display:flex; align-items:center; gap:1.5rem;
-  /* ドロワー用の初期値はPCでは不要。SPで上書きする */
+  /* ドロワー用のスタイル */
+  position:absolute; top:60px; right:12px; background:#fff; width:220px;
+  flex-direction:column; gap:0; display:none; border-radius:8px;
+  box-shadow:0 10px 20px rgba(0,0,0,.12); overflow:hidden; z-index:999;
 }
-.nav-links li{ margin:0; }
+.nav-links.show {
+  display: flex;
+}
+.nav-links li{ margin:0; width:100%; }
+.nav-links li a {
+  display:block; padding:14px 16px; width:100%;
+  text-align: left;
+}
+.nav-links li + li{ border-top:1px solid #eee; }
+
+/* 常に表示されるアクションボタン */
+#primary-actions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
 .signup-button{
   background:var(--brand); color:#fff;
   padding:.5rem 1rem; border-radius:6px; transition:background-color .2s;
@@ -164,13 +185,8 @@ footer{
   .hero .hero-text h1{ font-size:2.5rem; }
 
   /* ドロワー: SPでは非表示→.show時に表示 */
-  .nav-links{
-    position:absolute; top:60px; right:12px; background:#fff; width:220px;
-    flex-direction:column; gap:0; display:none; border-radius:8px;
-    box-shadow:0 10px 20px rgba(0,0,0,.12); overflow:hidden; z-index:999;
-  }
-  .nav-links li{ margin:0; width:100%; }
-  .nav-links li a, .nav-links li .signup-button{
+  /* .nav-links{ ... } のブロック全体を削除 */
+  .nav-links li a, .nav-links li .signup-button, .nav-links li .welcome-message {
     display:block; padding:14px 16px; width:100%;
   }
   .nav-links li + li{ border-top:1px solid #eee; }

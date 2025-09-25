@@ -13,7 +13,15 @@
     <header>
         <nav>
             <div class="logo">旅のしおり</div>
-            <ul>
+
+            <!-- ハンバーガーメニュー -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links">
                 <li><a href="#">ログイン</a></li>
                 <li><a href="#" class="signup-button">新規登録</a></li>
             </ul>
@@ -87,7 +95,6 @@
             </div>
         </section>
 
-        <!-- 👇 協力作成者セクション -->
         <section class="contributors">
             <h2>協力メンバー</h2>
             <ul>
@@ -104,34 +111,38 @@
         <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
     </footer>
 
-  <!-- トップへ戻るボタン -->
+<!-- トップへ戻るボタン -->
 <a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
 
-
-
-
-    <!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
-  <script>
-  // トップへ戻るボタンを取得
-  const backToTop = document.querySelector('.back-to-top');
-
-  // スクロール量に応じて表示・非表示を切り替える関数
-  const onScroll = () => {
-    if (window.scrollY > 300) { // 300px以上スクロールしたら
-      backToTop.classList.add('show');
-    } else {
-      backToTop.classList.remove('show');
+<!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
+<script>
+  // DOMが読まれてから安全に実行
+  document.addEventListener('DOMContentLoaded', () => {
+    // ハンバーガーメニューの開閉
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks  = document.querySelector('.nav-links');
+    if (hamburger && navLinks) {
+      hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
     }
-  };
 
-  // スクロールイベントに関数を登録
-  document.addEventListener('scroll', onScroll, { passive: true });
-
-  // ページロード時にも初期表示チェック
-  onScroll();
-
-  // ▼ テスト用：常に表示させたい場合
-  backToTop.classList.add('show');
+    // トップへ戻るボタンの表示制御
+    const backToTop = document.querySelector('.back-to-top');
+    if (backToTop) {
+      const onScroll = () => {
+        if (window.scrollY > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      };
+      document.addEventListener('scroll', onScroll, { passive: true });
+      onScroll(); // 初期表示チェック
+      // ※テストで常に表示させたい場合は次行を有効化
+      // backToTop.classList.add('show');
+    }
+  });
 </script>
 
 </body>

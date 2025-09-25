@@ -1,3 +1,4 @@
+/* ====== 基本スタイル ====== */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -126,6 +127,14 @@ header {
     font-weight: bold;
 }
 
+/* ナビゲーション */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* 右上メニュー表示の基準 */
+}
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -150,13 +159,29 @@ nav ul li {
     background-color: #0056b3;
 }
 
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Main */
 main {
     padding-top: 60px; /* header height */
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -304,34 +329,51 @@ main {
 
 /* Contributors */
 .contributors {
-    background: #f9fafb;
-    border-top: 1px solid rgba(0,0,0,0.05);
-    padding: 3rem 2rem 4rem;
+/* 協力メンバー セクション */
+.contributors {
+  /* 背景は main 側を採用（少し明るめ） */
+  background: #f9fafb;
+  /* セクションの上に薄い境界線（main 側） */
+  border-top: 1px solid rgba(0,0,0,0.05);
+  /* 余白は main 側（上3 / 横2 / 下4）。必要なら好みで調整OK */
+  padding: 3rem 2rem 4rem;
+  /* feature 側の中央寄せは残す（中の要素を中央に） */
+  text-align: center;
 }
 
+/* 見出しの体裁（main 側の追加ルール） */
 .contributors h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 1.2rem;
-    color: #222;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #222;
+}
+
 }
 
 .contributors ul {
     list-style: none;
     padding: 0;
-    margin: 0 auto;
-    max-width: 680px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 0.6rem 1rem;
+/* 協力メンバーのリストコンテナ（カードを並べる） */
+.contributors .member-list {
+  margin: 0 auto;
+  max-width: 680px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.6rem 1rem;
+  list-style: none;   /* 既定の点を消す */
+  padding: 0;         /* 既定の余白を消す */
 }
 
+/* 各メンバーのカード */
 .contributors li {
-    background: #fff;
-    border-radius: 12px;
-    padding: 0.9rem 1rem;
-    box-shadow: 0 5px 12px rgba(0,0,0,0.06);
-    text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.06);
+  text-align: center;
+}
+
 }
 
 /* Footer */
@@ -342,12 +384,21 @@ footer {
     padding: 2rem;
 }
 
+/* ====== モバイル対応 ====== */
 /* Responsive */
 @media (max-width: 1024px) {
-    .feature-list {
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
-        gap: 1.25rem;
-    }
+  .feature-list {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+/* （任意）より狭い端末の最適化 */
+@media (max-width: 640px) {
+  .feature-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -357,23 +408,68 @@ footer {
     .hero-text h1 {
         font-size: 2.5rem;
     }
+
     .features h2 {
         font-size: 2.2rem;
     }
-    .app-features h2 {
-        font-size: 2rem;
-    }
-    .feature-card {
-        padding: 1.2rem;
-    }
+/* 例：ここはあなたの元の @media ブレークポイントに合わせる */
+@media (max-width: 768px) {
+  /* ハンバーガー表示（feature側） */
+  .hamburger {
+    display: flex;
+    order: 2; /* 右側に寄せる */
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  nav ul.nav-links {
+    position: absolute;
+    top: 60px;  /* header高さ分 */
+    right: 0;   /* 右上表示 */
+    background-color: #fff;
+    width: 200px;
+    flex-direction: column;
+    display: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 999; /* 他要素より前面 */
+  }
+
+  nav ul.nav-links li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav ul.nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  nav ul.nav-links.show {
+    display: flex;
+  }
+
+  /* 見出し/カードの調整（main側） */
+  .app-features h2 {
+    font-size: 2rem;
+  }
+  .feature-card {
+    padding: 1.2rem;
+  }
 }
 
+/* main側の後続ブレークポイントはそのまま残す */
 @media (max-width: 480px) {
-    .hero {
-        height: auto;
-        padding: 3rem 1.25rem;
-    }
-    .feature-list {
-        grid-template-columns: 1fr;
+  .hero {
+    height: auto;
+    padding: 3rem 1.25rem;
+  }
+  .feature-list {
+    grid-template-columns: 1fr;
+  }
+}
+
     }
 }

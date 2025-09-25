@@ -1,3 +1,4 @@
+/* ====== 基本スタイル ====== */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
@@ -31,6 +32,14 @@ header {
     font-weight: bold;
 }
 
+/* ナビゲーション */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative; /* 右上メニュー表示の基準 */
+}
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -55,13 +64,29 @@ nav ul li {
     background-color: #0056b3;
 }
 
+/* ハンバーガーメニュー */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+}
+
+/* Main */
 main {
     padding-top: 60px; /* header height */
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -139,6 +164,22 @@ main {
     line-height: 1.5;
 }
 
+/* Contributors */
+.contributors {
+    padding: 4rem 2rem;
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+.contributors ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contributors li {
+    margin: 0.5rem 0;
+}
+
 /* Footer */
 footer {
     background-color: #222;
@@ -147,15 +188,50 @@ footer {
     padding: 2rem;
 }
 
-/* Responsive */
+/* ====== モバイル対応 ====== */
 @media (max-width: 768px) {
     .hero-text h1 {
         font-size: 2.5rem;
     }
+
     .features h2 {
         font-size: 2.2rem;
     }
+
+    /* ハンバーガー表示 */
+    .hamburger {
+        display: flex;
+        order: 2; /* 右側に寄せる */
+    }
+
     nav ul {
-        display: none; /* Simple responsive fix */
+        display: none;
+    }
+
+    nav ul.nav-links {
+        position: absolute;
+        top: 60px;  /* header高さ分 */
+        right: 0;   /* 右上表示 */
+        background-color: #fff;
+        width: 200px;
+        flex-direction: column;
+        display: none;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        overflow: hidden;
+        z-index: 999; /* 他要素より前面 */
+    }
+
+    nav ul.nav-links li {
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    nav ul.nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    nav ul.nav-links.show {
+        display: flex;
     }
 }

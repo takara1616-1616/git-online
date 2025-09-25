@@ -10,7 +10,15 @@
     <header>
         <nav>
             <div class="logo">旅のしおり</div>
-            <ul>
+
+            <!-- ハンバーガーメニュー -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-links">
                 <li><a href="#">ログイン</a></li>
                 <li><a href="#" class="signup-button">新規登録</a></li>
             </ul>
@@ -56,7 +64,6 @@
             </div>
         </section>
 
-        <!-- 👇 協力作成者セクションを追加 -->
         <section class="contributors">
             <h2>協力メンバー</h2>
             <ul>
@@ -72,5 +79,15 @@
     <footer>
         <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // ハンバーガーメニューの開閉
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
 </body>
 </html>

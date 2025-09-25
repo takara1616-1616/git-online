@@ -1,149 +1,180 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Discover Japan ― 新しい旅の扉をひらく</title>
-
-<h1>Discover Japan ― 新しい旅の扉をひらく</h1>
-
-    <link rel="stylesheet" href="static/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover Japan ― 新しい旅の扉をひらく</title>
+  <link rel="stylesheet" href="static/css/style.css"/>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">旅のしおり</div>
+<body id="top">
+  <header>
+    <nav>
+      <div class="logo">旅のしおり</div>
 
-            <!-- ハンバーガーメニュー -->
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+      <!-- ハンバーガーメニュー（常時表示・右上固定） -->
+      <button class="hamburger" aria-label="メニューを開閉" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
 
-            <ul class="nav-links">
-                <li><a href="#">ログイン</a></li>
-                <li><a href="#" class="signup-button">新規登録</a></li>
-            </ul>
-        </nav>
-    </header>
+      <ul id="primary-navigation" class="nav-links">
+        <li><a href="#">ログイン</a></li>
+        <li><a href="#" class="signup-button">新規登録</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-text">
-                <h1>まだ見ぬ日本の魅力を探しに行こう</h1>
-                <p>このサイトは、日本各地の隠れた名所や定番の観光地を紹介し、あなたの旅をより豊かにするためのプラットフォームです。</p>
-            </div>
-        </section>
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-text">
+        <h1 id="page-title">まだ見ぬ日本の魅力を探しに行こう</h1>
+        <p>このサイトは、日本各地の隠れた名所や定番の観光地を紹介し、あなたの旅をより豊かにするためのプラットフォームです。</p>
+      </div>
+    </section>
 
-        <!-- ✅ ここから新規：アプリの主な機能 -->
-        <section class="app-features" id="app-features" aria-labelledby="app-features-title">
-            <h2 id="app-features-title">アプリの主な機能</h2>
-            <ul class="feature-list">
-                <li class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">🗾</div>
-                    <h3>地域別ガイド</h3>
-                    <p>都道府県やテーマで観光地を検索。</p>
-                </li>
-                <li class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">⭐</div>
-                    <h3>お気に入り保存</h3>
-                    <p>気になるスポットをワンタップで保存。</p>
-                </li>
-                <li class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">🗺️</div>
-                    <h3>モデルコース</h3>
-                    <p>滞在時間・目的に合わせた旅程を自動提案。</p>
-                </li>
-                <li class="feature-card">
-                    <div class="feature-icon" aria-hidden="true">💬</div>
-                    <h3>口コミ要約</h3>
-                    <p>SNSやレビューの要点をギュッと整理。</p>
-                </li>
-            </ul>
-        </section>
-        <!-- ✅ ここまで新規 -->
+    <!-- アプリの主な機能 -->
+    <section class="app-features" id="app-features" aria-labelledby="app-features-title">
+      <h2 id="app-features-title">アプリの主な機能</h2>
+      <ul class="feature-list">
+        <li class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🗾</div>
+          <h3>地域別ガイド</h3>
+          <p>都道府県やテーマで観光地を検索。</p>
+        </li>
+        <li class="feature-card">
+          <div class="feature-icon" aria-hidden="true">⭐</div>
+          <h3>お気に入り保存</h3>
+          <p>気になるスポットをワンタップで保存。</p>
+        </li>
+        <li class="feature-card">
+          <div class="feature-icon" aria-hidden="true">🗺️</div>
+          <h3>モデルコース</h3>
+          <p>滞在時間・目的に合わせた旅程を自動提案。</p>
+        </li>
+        <li class="feature-card">
+          <div class="feature-icon" aria-hidden="true">💬</div>
+          <h3>口コミ要約</h3>
+          <p>SNSやレビューの要点をギュッと整理。</p>
+        </li>
+      </ul>
+    </section>
 
-        <section class="features">
-            <h2>注目の観光地</h2>
-            <div class="card-container">
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200?text=Toyama" alt="富山の風景">
-                    <h3>富山</h3>
-                    <p>壮大な立山連峰の自然に触れる旅。</p>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200?text=Takamatsu" alt="高松の風景">
-                    <h3>高松</h3>
-                    <p>瀬戸内海の穏やかな景色とアートの街。</p>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200?text=Okinawa" alt="沖縄の風景">
-                    <h3>沖縄</h3>
-                    <p>美しい海と独自の文化が魅力の島々。</p>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200?text=Osaka" alt="大阪の風景">
-                    <h3>大阪</h3>
-                    <p>食と笑いの都、活気あふれる街を探索。</p>
-                </div>
-                <div class="card">
-                    <img src="https://via.placeholder.com/300x200?text=Kumamoto" alt="熊本の風景">
-                    <h3>熊本</h3>
-                    <p>あんたがたどこさ　ひごさ　肥後どこさ　熊本さ</p>
-                </div>
-            </div>
-        </section>
+    <!-- 注目の観光地（元の写真はそのまま） -->
+    <section class="features">
+      <h2>注目の観光地</h2>
+      <div class="card-container">
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200?text=Toyama" alt="富山の風景">
+          <h3>富山</h3>
+          <p>壮大な立山連峰の自然に触れる旅。</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200?text=Takamatsu" alt="高松の風景">
+          <h3>高松</h3>
+          <p>瀬戸内海の穏やかな景色とアートの街。</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200?text=Okinawa" alt="沖縄の風景">
+          <h3>沖縄</h3>
+          <p>美しい海と独自の文化が魅力の島々。</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200?text=Osaka" alt="大阪の風景">
+          <h3>大阪</h3>
+          <p>食と笑いの都、活気あふれる街を探索。</p>
+        </div>
+        <div class="card">
+          <img src="https://via.placeholder.com/300x200?text=Kumamoto" alt="熊本の風景">
+          <h3>熊本</h3>
+          <p>あんたがたどこさ　ひごさ　肥後どこさ　熊本さ</p>
+        </div>
+      </div>
+    </section>
 
-        <section class="contributors">
-            <h2>協力メンバー</h2>
-            <ul>
-                <li>Member A（富山担当）</li>
-                <li>Member B（高松担当）</li>
-                <li>Member C（沖縄担当）</li>
-                <li>Member D（大阪担当）</li>
-                <li>あなた（熊本担当）</li>
-            </ul>
-        </section>
-    </main>
+    <!-- 協力メンバー（中央寄せ・カード化・Xリンク付き） -->
+    <section class="contributors" aria-labelledby="contributors-title">
+  <h2 id="contributors-title">協力メンバー</h2>
+  <ul class="member-list">
+    <li class="member-card">
+      <a class="member-name" href="https://x.com/example_a" target="_blank" rel="noopener noreferrer">
+        Member A
+        <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
+          <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
+        </svg>
+      </a>
+      <p class="member-role">富山担当</p>
+    </li>
+    <li class="member-card">
+      <a class="member-name" href="https://x.com/example_b" target="_blank" rel="noopener noreferrer">
+        Member B
+        <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
+          <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
+        </svg>
+      </a>
+      <p class="member-role">高松担当</p>
+    </li>
+    <li class="member-card">
+      <a class="member-name" href="https://x.com/example_c" target="_blank" rel="noopener noreferrer">
+        Member C
+        <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
+          <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
+        </svg>
+      </a>
+      <p class="member-role">沖縄担当</p>
+    </li>
+    <li class="member-card">
+      <a class="member-name" href="https://x.com/example_d" target="_blank" rel="noopener noreferrer">
+        Member D
+        <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
+          <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
+        </svg>
+      </a>
+      <p class="member-role">大阪担当</p>
+    </li>
+    <li class="member-card">
+      <a class="member-name" href="https://x.com/example_you" target="_blank" rel="noopener noreferrer">
+        あなた
+        <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
+          <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
+        </svg>
+      </a>
+      <p class="member-role">熊本担当</p>
+    </li>
+  </ul>
+</section>
 
-    <footer>
-        <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
-    </footer>
+  </main>
 
-<!-- トップへ戻るボタン -->
-<a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
+  <footer>
+    <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
+  </footer>
 
-<!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
-<script>
-  // DOMが読まれてから安全に実行
-  document.addEventListener('DOMContentLoaded', () => {
-    // ハンバーガーメニューの開閉
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks  = document.querySelector('.nav-links');
-    if (hamburger && navLinks) {
-      hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('show');
-      });
-    }
+  <!-- トップへ戻るボタン -->
+  <a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
 
-    // トップへ戻るボタンの表示制御
-    const backToTop = document.querySelector('.back-to-top');
-    if (backToTop) {
-      const onScroll = () => {
-        if (window.scrollY > 300) {
-          backToTop.classList.add('show');
-        } else {
-          backToTop.classList.remove('show');
-        }
-      };
-      document.addEventListener('scroll', onScroll, { passive: true });
-      onScroll(); // 初期表示チェック
-      // ※テストで常に表示させたい場合は次行を有効化
-      // backToTop.classList.add('show');
-    }
-  });
-</script>
+  <!-- 最小限のJS（ハンバーガー開閉／トップへ戻る表示切替） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks  = document.querySelector('.nav-links');
 
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', String(!expanded));
+          navLinks.classList.toggle('show');
+        });
+      }
+
+      const backToTop = document.querySelector('.back-to-top');
+      if (backToTop) {
+        const onScroll = () => {
+          if (window.scrollY > 300) backToTop.classList.add('show');
+          else backToTop.classList.remove('show');
+        };
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    });
+  </script>
 </body>
 </html>

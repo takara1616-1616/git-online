@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>日本の魅力を再発見</title>
+    <title>Discover Japan ― 新しい旅の扉をひらく</title>
+
+<h1>Discover Japan ― 新しい旅の扉をひらく</h1>
+
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
@@ -100,5 +103,36 @@
     <footer>
         <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
     </footer>
+
+  <!-- トップへ戻るボタン -->
+<a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
+
+
+
+
+    <!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
+  <script>
+  // トップへ戻るボタンを取得
+  const backToTop = document.querySelector('.back-to-top');
+
+  // スクロール量に応じて表示・非表示を切り替える関数
+  const onScroll = () => {
+    if (window.scrollY > 300) { // 300px以上スクロールしたら
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  };
+
+  // スクロールイベントに関数を登録
+  document.addEventListener('scroll', onScroll, { passive: true });
+
+  // ページロード時にも初期表示チェック
+  onScroll();
+
+  // ▼ テスト用：常に表示させたい場合
+  backToTop.classList.add('show');
+</script>
+
 </body>
 </html>

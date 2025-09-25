@@ -104,13 +104,44 @@ body{ font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP",
 
 /* トップへ戻る */
 .back-to-top{
-  position:fixed; right:16px; bottom:16px; width:44px; height:44px;
-  display:grid; place-items:center; background:var(--brand); color:#fff;
-  border-radius:50%; text-decoration:none; box-shadow: var(--shadow);
-  opacity:0; transform: translateY(8px); pointer-events:none;
+  position: fixed;
+  right: 16px;         /* PCもスマホも右下に */
+  bottom: 16px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
   transition: opacity .2s ease, transform .2s ease;
+  z-index: 100;        /* 他の要素より前面 */
 }
-.back-to-top.show{ opacity:1; transform: translateY(0); pointer-events:auto; }
+
+.back-to-top.show{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* スマホ向け調整 */
+@media (max-width: 520px){
+  .back-to-top{
+    width: 40px;
+    height: 40px;
+    right: 12px;
+    bottom: 12px;
+  }
+  .back-to-top svg{
+    width: 20px;
+    height: 20px;
+  }
+}
+
 
 /* スクリーンリーダー用 */
 .sr-only{

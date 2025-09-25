@@ -124,36 +124,33 @@
         </section>
     </footer>
 
-    <!-- ▼ トップへ戻るボタン -->
-    <a href="#top" class="back-to-top" aria-label="トップへ戻る">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 4l-8 8h6v8h4v-8h6z"></path>
-        </svg>
-    </a>
+  <!-- トップへ戻るボタン -->
+<a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
+
+
+
 
     <!-- ▼ 最小限のJS（ハンバーガー開閉／トップへ戻るの表示切替） -->
-    <script>
-      (function () {
-        const btn = document.querySelector('.hamburger');
-        const menu = document.getElementById('nav-links');
+  <script>
+  // トップへ戻るボタンを取得
+  const backToTop = document.querySelector('.back-to-top');
 
-        btn?.addEventListener('click', () => {
-          const expanded = btn.getAttribute('aria-expanded') === 'true';
-          btn.setAttribute('aria-expanded', String(!expanded));
-          menu.classList.toggle('open');
-        });
+  // スクロール量に応じて表示・非表示を切り替える関数
+  const onScroll = () => {
+    if (window.scrollY > 300) { // 300px以上スクロールしたら
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  };
 
-        const backToTop = document.querySelector('.back-to-top');
-        const onScroll = () => {
-          if (window.scrollY > 320) {
-            backToTop.classList.add('show');
-          } else {
-            backToTop.classList.remove('show');
-          }
-        };
-        document.addEventListener('scroll', onScroll, { passive: true });
-        onScroll(); // 初期状態反映
-      })();
-    </script>
-</body>
-</html>
+  // スクロールイベントに関数を登録
+  document.addEventListener('scroll', onScroll, { passive: true });
+
+  // ページロード時にも初期表示チェック
+  onScroll();
+
+  // ▼ テスト用：常に表示させたい場合
+  backToTop.classList.add('show');
+</script>
+

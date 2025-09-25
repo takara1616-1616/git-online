@@ -1,150 +1,284 @@
-/* ベース */
-*{ box-sizing:border-box; }
-html,body{ margin:0; padding:0; background:#fff; color:#1f2937; }
-body{ font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans JP", Helvetica, Arial, sans-serif; }
-
-:root{
-  --border:#e5e7eb;
-  --muted:#6b7280;
-  --brand:#2563eb;
-  --brand-weak:#eef2ff;
-  --card:#f8fafc;
-  --shadow:0 10px 24px rgba(0,0,0,0.08);
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-/* ヘッダー／ナビ */
-.site-header{
-  position: sticky; top:0; z-index: 50;
-  background:rgba(255,255,255,0.8); backdrop-filter: blur(10px);
-  border-bottom:1px solid var(--border);
-}
-.nav{
-  max-width:1100px; margin:0 auto; padding:12px 16px;
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
-}
-.logo{ font-weight:700; }
-.nav-links{
-  list-style:none; display:flex; gap:14px; margin:0; padding:0; align-items:center;
-}
-.nav-links a{
-  text-decoration:none; color:#1f2937; padding:8px 10px; border-radius:10px;
-}
-.nav-links a:hover{ background:var(--brand-weak); }
-.signup-button{ background:var(--brand); color:#fff !important; }
-.signup-button:hover{ filter: brightness(0.97); }
-
-/* ハンバーガー（PCで非表示、モバイルで表示） */
-.hamburger{
-  display:none; border:1px solid var(--border); background:#fff;
-  border-radius:10px; padding:6px; cursor:pointer; line-height:0;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* ヒーロー */
-.hero{
-  background: linear-gradient(180deg, #f0f6ff 0%, #fff 100%);
-  border-bottom:1px solid var(--border);
-}
-.hero .hero-text{
-  max-width:1100px; margin:0 auto; padding:56px 16px 40px;
-}
-.hero h1{ font-size: clamp(1.4rem, 2.6vw, 2.2rem); margin:0 0 12px; }
-.hero p{ margin:0 0 18px; color:var(--muted); line-height:1.8; }
-.cta{
-  display:inline-block; text-decoration:none; background:var(--brand);
-  color:#fff; padding:10px 16px; border-radius:12px; box-shadow: var(--shadow);
-}
-
-/* アプリ機能の説明 */
-.app-info{
-  max-width:1100px; margin:0 auto; padding:28px 16px 4px;
-}
-.app-info h2{ font-size:1.4rem; margin:0 0 10px; }
-.feature-list{ margin:0; padding-left:1.2rem; color:#111827; line-height:1.8; }
-.feature-list li{ margin:6px 0; }
-
-/* 観光地カード（元のデータを使用） */
-.features{
-  max-width:1100px; margin:0 auto; padding:28px 16px 56px;
-}
-.features h2{ font-size:1.4rem; margin:0 0 16px; }
-.card-container{
-  display:grid; gap:16px;
-  grid-template-columns: repeat(5, 1fr);
-}
-.card{
-  background:var(--card); border:1px solid var(--border); border-radius:16px;
-  overflow:hidden; transition: transform .12s ease, box-shadow .12s ease;
-}
-.card:hover{ transform: translateY(-2px); box-shadow: var(--shadow); }
-.card img{ width:100%; height:180px; object-fit:cover; display:block; }
-.card h3{ margin:12px; font-size:1.05rem; }
-.card p{ margin:0 12px 16px; color:var(--muted); }
-
-/* フッター＋作成者4名 */
-.site-footer{
-  border-top:1px solid var(--border); padding:18px 16px; text-align:center;
-}
-.site-footer p{ margin:0 0 10px; }
-.authors{
-  max-width:1100px; margin:8px auto 0; padding:0 16px; text-align:left;
-}
-.authors h3{ font-size:1.1rem; margin:0 0 8px; }
-.author-list{
-  list-style:none; margin:0; padding:0;
-  display:grid; grid-template-columns: repeat(4, 1fr); gap:12px;
-}
-.author-item{
-  border:1px solid var(--border); background:#fff; border-radius:12px;
-  padding:10px 12px; display:flex; flex-direction:column; gap:4px;
-}
-.author-name{ font-weight:700; }
-.author-role{ color:#6b7280; font-size:0.95rem; }
-.author-x{ color:var(--brand); text-decoration:none; }
-.author-x:hover{ text-decoration:underline; }
-
-/* トップへ戻る */
-.back-to-top{
-  position:fixed; right:16px; bottom:16px; width:44px; height:44px;
-  display:grid; place-items:center; background:var(--brand); color:#fff;
-  border-radius:50%; text-decoration:none; box-shadow: var(--shadow);
-  opacity:0; transform: translateY(8px); pointer-events:none;
-  transition: opacity .2s ease, transform .2s ease;
-}
-.back-to-top.show{ opacity:1; transform: translateY(0); pointer-events:auto; }
-
-/* スクリーンリーダー用 */
-.sr-only{
-  position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
-  clip:rect(0,0,0,0); white-space:nowrap; border:0;
+/* Header */
+header {
+    background-color: #fff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
-/* レスポンシブ */
-@media (max-width: 1200px){
-  .card-container{ grid-template-columns: repeat(4, 1fr); }
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-@media (max-width: 900px){
-  .card-container{ grid-template-columns: repeat(3, 1fr); }
-  .author-list{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 700px){
-  .card-container{ grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 520px){
-  /* ハンバーガー表示とドロワー化 */
-  .hamburger{ display:inline-grid; }
-  .nav{ position:relative; }
-  .nav-links{
-    position:absolute; inset:56px 12px auto 12px;
-    display:block; background:#fff; border:1px solid var(--border);
-    border-radius:14px; padding:8px; box-shadow: var(--shadow);
-    max-height:0; overflow:hidden; transition:max-height .2s ease;
-  }
-  .nav-links.open{ max-height:220px; }
-  .nav-links li{ margin:6px 0; }
 
-  .card-container{ grid-template-columns: 1fr; }
-  .card img{ height:160px; }
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
 
-  .authors{ padding:0 12px 12px; }
-  .author-list{ grid-template-columns: 1fr; } /* モバイルは1列 */
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+.signup-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-button:hover {
+    background-color: #0056b3;
+}
+
+main {
+    padding-top: 60px; /* header height */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 40vh;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ===========================
+   App Features (NEW)
+   =========================== */
+.app-features {
+    background: #ffffff;
+    padding: 4rem 2rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.app-features h2 {
+    font-size: 2.4rem;
+    text-align: center;
+    margin: 0 auto 2.5rem;
+    color: #222;
+    letter-spacing: 0.02em;
+}
+
+.feature-list {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+}
+
+.feature-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    min-height: 180px;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.12);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    line-height: 1;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: #f2f6ff;
+    margin-bottom: 0.8rem;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    margin: 0 0 0.4rem;
+    color: #111;
+}
+
+.feature-card p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Featured Destinations */
+.features {
+    padding: 6rem 2rem;
+    text-align: center;
+    background-color: #fff;
+}
+
+.features h2 {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+    color: #222;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    overflow: hidden;
+    width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 15px 25px rgba(0,0,0,0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.6rem;
+    margin: 1.5rem;
+}
+
+.card p {
+    padding: 0 1.5rem 1.5rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Contributors */
+.contributors {
+    background: #f9fafb;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding: 3rem 2rem 4rem;
+}
+
+.contributors h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    color: #222;
+}
+
+.contributors ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 680px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem 1rem;
+}
+
+.contributors li {
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.9rem 1rem;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.06);
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .feature-list {
+        grid-template-columns: repeat(2, minmax(220px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        display: none; /* Simple responsive fix */
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .features h2 {
+        font-size: 2.2rem;
+    }
+    .app-features h2 {
+        font-size: 2rem;
+    }
+    .feature-card {
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: auto;
+        padding: 3rem 1.25rem;
+    }
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
 }

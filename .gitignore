@@ -1,0 +1,6 @@
+# データベースファイルをGit管理から除外
+*.db
+*.sqlite
+*.sqlite3
+database/
+db/

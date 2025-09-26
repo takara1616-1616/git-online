@@ -3,183 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Discover Japan ― 新しい旅の扉をひらく</title>
-  <!-- Flaskでは url_for を使う -->
+  <title>地元観光地紹介アプリ</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
-<body id="top">
+<body>
   <header>
-    <nav>
-      <div class="logo">旅のしおり</div>
-
-      <!-- ハンバーガーメニュー（常時表示・右上固定） -->
-      <button class="hamburger" aria-label="メニューを開閉" aria-controls="primary-navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul id="primary-navigation" class="nav-links">
-  <li><a href="{{ url_for('login_html') }}">ログイン</a></li>
-  <li><a href="{{ url_for('register_html') }}" class="signup-button">新規登録</a></li>
-</ul>
+    <div class="logo">地元観光地紹介</div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#home">ホーム</a></li>
+        <li><a href="#spots">観光地</a></li>
+        <li><a href="#members">協力メンバー</a></li>
+      </ul>
     </nav>
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="page-title">
-      <div class="hero-text">
-        <h1 id="page-title">まだ見ぬ日本の魅力を探しに行こう</h1>
-        <p>このアプリは、日本各地の隠れた名所や定番の観光地を紹介し、
-            あなたの旅をより豊かにするためのプラットフォームです。</p>
-      </div>
+    <section id="home" class="hero">
+      <h1>ようこそ！</h1>
+      <p>私たち4人の地元の観光地をご紹介します。</p>
     </section>
 
-    <!-- アプリの主な機能 -->
-    <section class="app-features" id="app-features" aria-labelledby="app-features-title">
-      <h2 id="app-features-title">アプリの主な機能</h2>
-      <ul class="feature-list">
-        <li class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🗾</div>
-          <h3>地域別ガイド</h3>
-          <p>都道府県やテーマで観光地を検索。</p>
-        </li>
-        <li class="feature-card">
-          <div class="feature-icon" aria-hidden="true">⭐</div>
-          <h3>お気に入り保存</h3>
-          <p>気になるスポットをワンタップで保存。</p>
-        </li>
-        <li class="feature-card">
-          <div class="feature-icon" aria-hidden="true">🗺️</div>
-          <h3>モデルコース</h3>
-          <p>滞在時間・目的に合わせた旅程を自動提案。</p>
-        </li>
-        <li class="feature-card">
-          <div class="feature-icon" aria-hidden="true">💬</div>
-          <h3>口コミ要約</h3>
-          <p>SNSやレビューの要点をギュッと整理。</p>
-        </li>
-      </ul>
-    </section>
-
-    <!-- 注目の観光地（元の写真はそのまま／大阪のみローカル画像に変更） -->
-    <section class="features">
-      <h2>注目の観光地</h2>
+    <section id="spots" class="spots">
+      <h2>観光地一覧</h2>
       <div class="card-container">
         <div class="card">
-          <img src="static/images/toyama_shomyodaki.jpg" alt="富山の風景" loading="lazy" decoding="async" width="320" height="220">
+          <img src="{{ url_for('static', filename='images/toyama_tateyama.jpg') }}" alt="富山の立山連峰" loading="lazy" decoding="async">
           <h3>富山</h3>
-          <p>山と水が綺麗。それが贅沢</p>
+          <p>立山連峰や黒部ダムの大自然を満喫。</p>
         </div>
         <div class="card">
-          <img src="https://via.placeholder.com/300x200?text=Takamatsu" alt="高松の風景" loading="lazy" decoding="async" width="320" height="220">
-          <h3>高松</h3>
-          <p>瀬戸内海の穏やかな景色とアートの街。</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/300x200?text=Okinawa" alt="沖縄の風景" loading="lazy" decoding="async" width="320" height="220">
-          <h3>沖縄</h3>
-          <p>美しい海と独自の文化が魅力の島々。</p>
-        </div>
-        <div class="card">
-          <!-- ここをローカル画像に変更 -->
-          <img src="static/images/Osaka-0089691144-1.jpg" alt="大阪の風景（道頓堀・通天閣など）" loading="lazy" decoding="async" width="320" height="220">
+          <img src="{{ url_for('static', filename='images/osaka_castle.jpg') }}" alt="大阪城" loading="lazy" decoding="async">
           <h3>大阪</h3>
-          <p>食と笑いの都、合言葉は「なんでやねん！」。</p>
+          <p>歴史とグルメの街、大阪城と道頓堀。</p>
         </div>
         <div class="card">
-          <img src="https://kumamoto.photo/archives/_data/i/upload/2015/11/10/20151110083412-ed5463d4-me.jpg" alt="熊本の風景" loading="lazy" decoding="async" width="320" height="220">
-          <h3>熊本</h3>
-          <p>あんたがたどこさ　ひごさ　肥後どこさ　熊本さ</p>
+          <img src="{{ url_for('static', filename='images/fukuoka_dazaifu.jpg') }}" alt="福岡の太宰府天満宮" loading="lazy" decoding="async">
+          <h3>福岡</h3>
+          <p>屋台文化と太宰府天満宮で歴史を体感。</p>
+        </div>
+        <div class="card">
+          <img src="{{ url_for('static', filename='images/takamatsu_port.jpg') }}" alt="高松港と直島行きフェリー" loading="lazy" decoding="async">
+          <h3>高松</h3>
+          <p>瀬戸内海の穏やかな景色とアートの玄関口。</p>
         </div>
       </div>
     </section>
 
-    <!-- 協力メンバー（中央寄せ・カード化・Xリンク付き） -->
-    <section class="contributors" aria-labelledby="contributors-title">
-      <h2 id="contributors-title">協力メンバー</h2>
+    <section id="members" class="members">
+      <h2>協力メンバー</h2>
       <ul class="member-list">
-        <li class="member-card">
-          <a class="member-name" href="https://x.com/Syntaxkarada" target="_blank" rel="noopener noreferrer">
-            Syntaxkarada
-            <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
-              <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
-            </svg>
-          </a>
-          <p class="member-role">富山担当</p>
-        </li>
-        <li class="member-card">
-          <a class="member-name" href="https://x.com/example_b" target="_blank" rel="noopener noreferrer">
-            Member B
-            <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
-              <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
-            </svg>
-          </a>
-          <p class="member-role">高松担当</p>
-        </li>
-        <li class="member-card">
-          <a class="member-name" href="https://x.com/example_c" target="_blank" rel="noopener noreferrer">
-            Member C
-            <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
-              <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
-            </svg>
-          </a>
-          <p class="member-role">沖縄担当</p>
-        </li>
-        <li class="member-card">
-          <!-- クォーテーションを追加して修正 -->
-          <a class="member-name" href="https://x.com/OkuboF8" target="_blank" rel="noopener noreferrer">
-            GIN
-            <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
-              <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
-            </svg>
-          </a>
-          <p class="member-role">大阪担当</p>
-        </li>
-        <li class="member-card">
-          <a class="member-name" href="https://x.com/trackmakerdj" target="_blank" rel="noopener noreferrer">
-            いぐお
-            <svg class="x-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" aria-hidden="true">
-              <path fill="currentColor" d="M714 558l452-558h-106l-392 483L360 0H0l468 684-442 543h106l385-470 336 470h360z"/>
-            </svg>
-          </a>
-          <p class="member-role">熊本担当</p>
-        </li>
+        <li class="member-card">メンバー1 <span class="role">富山担当</span></li>
+        <li class="member-card">メンバー2 <span class="role">大阪担当</span></li>
+        <li class="member-card">メンバー3 <span class="role">福岡担当</span></li>
+        <li class="member-card">ぼうしち <span class="role">高松担当</span></li>
       </ul>
     </section>
-
   </main>
 
   <footer>
-    <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
+    <p>&copy; 2025 地元観光地紹介アプリ</p>
   </footer>
-
-  <!-- トップへ戻るボタン -->
-  <a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
-
-  <!-- 最小限のJS（ハンバーガー開閉／トップへ戻る表示切替） -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const hamburger = document.querySelector('.hamburger');
-      const navLinks  = document.querySelector('.nav-links');
-
-      if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-          const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-          hamburger.setAttribute('aria-expanded', String(!expanded));
-          navLinks.classList.toggle('show');
-        });
-      }
-
-      const backToTop = document.querySelector('.back-to-top');
-      if (backToTop) {
-        const onScroll = () => {
-          if (window.scrollY > 300) backToTop.classList.add('show');
-          else backToTop.classList.remove('show');
-        };
-        document.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-    });
-  </script>
 </body>
 </html>

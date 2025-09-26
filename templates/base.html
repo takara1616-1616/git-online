@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Discover Japan{% endblock %} ― 新しい旅の扉をひらく</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body id="top">
+  <header>
+    <nav>
+      <div class="logo">旅のしおり</div>
+
+      <!-- ハンバーガーメニュー（常時表示・右上固定） -->
+      <button class="hamburger" aria-label="メニューを開閉" aria-controls="primary-navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul id="primary-navigation" class="nav-links">
+        <li><a href="{{ url_for('login_html') }}">ログイン</a></li>
+        <li><a href="{{ url_for('register_html') }}" class="signup-button">新規登録</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer>
+    <p>&copy; 2025 旅のしおり. All Rights Reserved.</p>
+  </footer>
+
+  <!-- トップへ戻るボタン -->
+  <a href="#top" class="back-to-top" aria-label="トップへ戻る">↑</a>
+
+  <!-- 最小限のJS（ハンバーガー開閉／トップへ戻る表示切替） -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburger = document.querySelector('.hamburger');
+      const navLinks  = document.querySelector('.nav-links');
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', String(!expanded));
+          navLinks.classList.toggle('show');
+        });
+      }
+
+      const backToTop = document.querySelector('.back-to-top');
+      if (backToTop) {
+        const onScroll = () => {
+          if (window.scrollY > 300) backToTop.classList.add('show');
+          else backToTop.classList.remove('show');
+        };
+        document.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
+    });
+  </script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>
